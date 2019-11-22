@@ -1,0 +1,25 @@
+[
+	{
+		"name": "Crinkles",
+		"price": 75,
+		"variants": [
+			{
+				"name": "with choco fillings",
+				"price": 100
+			}
+		],
+		"flags": [
+			"Best Seller"
+		]
+	},
+	{
+		"name": "Cookies",
+		"price": 75,
+		"variants": [
+			{
+				"name": "with choco fillings",
+				"price": 100
+			}
+		]
+	}
+]
