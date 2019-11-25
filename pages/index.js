@@ -1,10 +1,6 @@
 import React from 'react'
-
-import Head from '../components/head'
-import Nav from '../components/nav'
-import Menu from '../sections/menu'
-import GlobalStyles from '../components/globalStyles'
 import dynamic from 'next/dynamic'
+import Page from '../sections/page'
 
 /**
  * TODOs:
@@ -18,15 +14,12 @@ const MenuSection = dynamic({
 })
 
 const Home = props => {
-  console.log('propss:', props);
-
   return (
-    <div>
-      <Head title="Home" />
+    <Page pageTitle="Home">
       <div className="main-background">
         {/* <img src="/static/drops2x.png" /> */}
       </div>
-      <Nav />
+
       <section className="main-section">
         <h1 className="header-text main-text">
           <span className="sugarrush">Sugarrush</span>
@@ -38,8 +31,6 @@ const Home = props => {
         <MenuSection data={props.entry} />
       </section>
 
-      <GlobalStyles />
-
       <style jsx>{`
         .main-background {
           position: absolute;
@@ -48,7 +39,7 @@ const Home = props => {
           width: 100%;
           height: 100%;
           z-index: -99999;
-          background: url('/public/static/drops2x.png') no-repeat;
+          background: url('/static/drops2x.png') no-repeat;
           background-size: auto 120%;
           background-position: top right; 
         }
@@ -73,8 +64,8 @@ const Home = props => {
         }
         .main-text .sugarrush {
           font-size: calc(2em + 8vw);
-          text-shadow: 2px 2px 3px rgba(0,0,0,0.38);
           -webkit-text-stroke: 2px white;
+          text-shadow: 2px 2px 3px rgba(0,0,0,0.38);
           letter-spacing: -0.0750em;
           line-height: 0.8;
           color: #D29FFB;
@@ -82,8 +73,21 @@ const Home = props => {
         .main-text .by-ana {
           font-size: 2em;
         }
+
+        @media (min-width: 1440px) {
+          .main-text .sugarrush {
+            -webkit-text-stroke: 4px white;
+            text-shadow: 4px 4px 6px rgba(0,0,0,0.38);
+          }
+        }
+
+        @media (max-width: 480px) {
+          .main-text .sugarrush {
+            -webkit-text-stroke: 1px white;
+          }
+        }
       `}</style>
-    </div>
+    </Page>
   );
 }
 
@@ -91,8 +95,6 @@ Home.getInitialProps = async function() {
 	const spreadsheetURL = 'https://spreadsheets.google.com/feeds/list/1UjD-AjOJr-CaYSbeNjltDZCX3B10ysVRvAF5pXDikUg/1/public/values?alt=json'
 	const res = await fetch(spreadsheetURL)
 	const menuData = await res.json()
-
-	console.log('menuData index:', menuData)
 
 	return menuData.feed
 }

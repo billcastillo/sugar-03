@@ -12,8 +12,6 @@ const globalStyles = () => {
 			`}</style>
 		</div>
 	);
-
-
 }
 
 export default globalStyles
