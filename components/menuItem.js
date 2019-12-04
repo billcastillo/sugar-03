@@ -8,8 +8,6 @@ import { colors, media, fonts } from '../data/theme';
  */
 const getVariants = (variants, price) => {
 	let newVariants = {};
-	// const entries = new Map([variants, price]);
-	// newVariants = Object.fromEntries(entries);
 
 	// Create new object from two arrays: variants and price
 	// Also removes the first space
@@ -102,7 +100,7 @@ const MenuItem = props => {
 					}
 
 					.menu-item-container {
-						padding: 0 0 24px 0;
+						padding: 0 0 32px 0;
 					}
 				}
 			`}</style>

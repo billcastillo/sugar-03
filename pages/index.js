@@ -15,11 +15,6 @@ import Menu from '../sections/menu';
  * Make manifest dynamic / https://github.com/arthurbergmz/webpack-pwa-manifest
  */
 
-// const MenuSection = dynamic({
-//   loader: () => import('../sections/menu'),
-//   loading: () => <p>Loading Menu ...</p>
-// })
-
 const url =
 	'https://spreadsheets.google.com/feeds/list/1UjD-AjOJr-CaYSbeNjltDZCX3B10ysVRvAF5pXDikUg/1/public/values?alt=json';
 
@@ -34,9 +29,15 @@ class Home extends React.Component {
 	componentDidMount() {
 		const { menuData } = this.state;
 		fetch(url)
-			.then(response => response.json())
+			.then(
+				response => {
+					return response.json();
+				},
+				err => {
+					console.error('oh no something went wrong =(', err);
+				},
+			)
 			.then(response => {
-				console.log('menuData 1:', menuData);
 				this.setState({ menuData: response.feed.entry });
 			});
 	}

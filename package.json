@@ -17,7 +17,6 @@
     "react-dom": "^16.11.0"
   },
   "devDependencies": {
-    "eslint-plugin-prettier": "^3.1.1",
-    "poetic": "^1.1.0"
+    "eslint-plugin-prettier": "^3.1.1"
   }
 }

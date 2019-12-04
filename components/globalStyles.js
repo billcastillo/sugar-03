@@ -9,6 +9,7 @@ const globalStyles = () => {
 					color: ${colors['Just Blue']};
 					background: ${colors['Angy Red']};
 				}
+
 				body {
 					color: ${colors.textColor};
 					font-family: ${fonts.nunito};
