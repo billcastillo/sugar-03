@@ -4,7 +4,7 @@ import { media } from '../data/theme';
 
 const Menu = ({ data }) => {
 	if (data === null) {
-		return <p>Fetching Menu ...</p>;
+		return <p className="text-center">Fetching Menu ...</p>;
 	}
 
 	return (

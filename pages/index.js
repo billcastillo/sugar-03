@@ -2,6 +2,7 @@ import React from "react";
 import fetch from "isomorphic-unfetch";
 import Page from "../sections/page";
 import Menu from "../sections/menu";
+import Contact from '../sections/contact';
 
 /**
  * TODOs:
@@ -13,6 +14,8 @@ import Menu from "../sections/menu";
  * PWAs https://able.bio/drenther/building-a-progressive-web-app-with-nextjs-part-i--00edasw / next-pwa / https://frustrated.blog/2016/07/17/pwa_step_one.html
  * Add service worker / next-offline
  * Make manifest dynamic / https://github.com/arthurbergmz/webpack-pwa-manifest
+ * Contact number / how to order
+ * About page / reviews
  */
 
 const url =
@@ -42,14 +45,6 @@ class Home extends React.Component {
 			});
 	}
 
-  // static async getInitialProps() {
-  //   const spreadsheetURL = 'https://spreadsheets.google.com/feeds/list/1UjD-AjOJr-CaYSbeNjltDZCX3B10ysVRvAF5pXDikUg/1/public/values?alt=json'
-  //   const res = await fetch(spreadsheetURL)
-  //   const menuData = await res.json()
-
-  //   return menuData.feed
-  // }
-
   render() {
     const { menuData } = this.state;
 
@@ -60,14 +55,19 @@ class Home extends React.Component {
         </div>
 
         <section className="main-section">
+          <div className="blob-1" ></div>
           <h1 className="main-text">
             <span className="sugarrush">Sugarrush</span>
             <span className="by-ana">by ana</span>
           </h1>
         </section>
 
-        <section className="menu-section">
+        <section className="menu-section" id="menu">
           <Menu data={menuData} />
+        </section>
+
+        <section className="contact-section" id="contact">
+          <Contact />
         </section>
 
         <style jsx>{`
@@ -92,7 +92,18 @@ class Home extends React.Component {
             display: flex;
             justify-content: center;
             align-items: center;
-            min-height: 60vh;
+            min-height: 70vh;
+          }
+          .main-section .blob-1 {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background-image: url('/static/blob-1.svg');
+            background-size: auto 100%;
+            background-repeat: no-repeat;
+            z-index: -1;
           }
           .main-text {
             text-align: center;
@@ -113,6 +124,10 @@ class Home extends React.Component {
             font-size: 2em;
           }
 
+          .contact-section {
+            margin-bottom: 64px;
+          }
+
           @media (min-width: 1440px) {
             .main-text .sugarrush {
               -webkit-text-stroke: 4px white;
@@ -121,6 +136,9 @@ class Home extends React.Component {
           }
 
           @media (max-width: 480px) {
+            .main-section {
+              min-height: 60vh;
+            }
             .main-text .sugarrush {
               -webkit-text-stroke: 1px white;
             }

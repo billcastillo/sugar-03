@@ -1,3 +1,4 @@
+// @ts-check
 import React from "react";
 import { colors, media, fonts } from "../data/theme";
 
@@ -8,8 +9,6 @@ import { colors, media, fonts } from "../data/theme";
  */
 const getVariants = (variants, price) => {
   let newVariants = {};
-  // const entries = new Map([variants, price]);
-  // newVariants = Object.fromEntries(entries);
 
   // Create new object from two arrays: variants and price
   // Also removes the first space
@@ -54,6 +53,7 @@ const MenuItem = props => {
       <style jsx>{`
         .menu-item {
           width: 45%;
+          margin-bottom: 24px;
         }
 
         .menu-item-container {
@@ -77,7 +77,7 @@ const MenuItem = props => {
 
         .menu-item h4 {
           font-family: ${fonts.nunito};
-          font-size: 28px;
+          font-size: 24px;
           font-weight: ${fonts.nunito900};
           line-height: 1.4;
           text-transform: uppercase;
@@ -91,7 +91,7 @@ const MenuItem = props => {
 
         .variants-section .variants-name {
           font-family: ${fonts.nunito};
-          font-size: 28px;
+          font-size: 24px;
         }
 
         .variants-section .variants-price {

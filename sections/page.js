@@ -3,6 +3,7 @@ import Link from "next/link";
 import Head from "../components/head";
 import GlobalStyles from "../components/globalStyles";
 import OfflineSupport from "../components/OfflineSupport";
+import Nav from '../components/nav'
 import Footer from "../components/Footer";
 
 const Page = ({ children, noHeader, pageTitle }) => {
@@ -15,15 +16,7 @@ const Page = ({ children, noHeader, pageTitle }) => {
         ""
       ) : (
         <header>
-          <nav>
-            <ul>
-              <li>
-                <Link href="/">
-                  <a>Home</a>
-                </Link>
-              </li>
-            </ul>
-          </nav>
+          <Nav/>
         </header>
       )}
 

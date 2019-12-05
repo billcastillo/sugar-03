@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import { colors } from '../data/theme'
 
 const links = [{ href: 'https://github.com/segmentio/create-next-app', label: 'Github' }].map(link => {
 	link.key = `nav-link-${link.href}-${link.label}`;
@@ -9,28 +10,19 @@ const links = [{ href: 'https://github.com/segmentio/create-next-app', label: 'G
 const Nav = () => (
 	<nav>
 		<ul>
-			<li>
-				<Link href="/">Home</Link>
-			</li>
-			<ul>
-				{links.map(({ key, href, label }) => (
-					<li key={key}>
-						<a href={href}>{label}</a>
-					</li>
-				))}
-			</ul>
+			<li><Link href="/"><a>Home</a></Link></li>
+			<li><a href="#menu">Menu</a></li>
+			<li><a href="#contact">Contact</a></li>
 		</ul>
 
 		<style jsx>{`
-			:global(body) {
-				margin: 0;
-			}
 			nav {
-				text-align: center;
+				text-align: right;
+				margin: 24px 0;
 			}
 			ul {
 				display: flex;
-				justify-content: space-between;
+				justify-content: flex-end;
 			}
 			nav > ul {
 				padding: 4px 16px;
@@ -39,10 +31,13 @@ const Nav = () => (
 				display: flex;
 				padding: 6px 8px;
 			}
+			li:not(:last-child) {
+				margin-right: 24px;
+			}
 			a {
-				color: #067df7;
+				color: #9A46DD;
 				text-decoration: none;
-				font-size: 13px;
+				font-size: 16px;
 			}
 		`}</style>
 	</nav>
