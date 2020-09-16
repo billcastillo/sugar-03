@@ -2,31 +2,31 @@ import React from "react";
 import Head from "../components/head";
 import GlobalStyles from "../components/globalStyles";
 import OfflineSupport from "../components/OfflineSupport";
-import Nav from '../components/nav'
+import Nav from "../components/nav";
 import Footer from "../components/Footer";
 
 const Page = ({ children, noHeader, pageTitle }) => {
-  return (
-    <>
-      <OfflineSupport />
-      <Head title={pageTitle} />
+	return (
+		<>
+			<OfflineSupport />
+			<Head title={pageTitle} />
 
-      {noHeader ? (
-        ""
-      ) : (
-        <header>
-          <Nav/>
-        </header>
-      )}
+			{noHeader ? (
+				""
+			) : (
+				<header>
+					<Nav />
+				</header>
+			)}
 
-      <main>
-        <GlobalStyles />
-        {children}
-      </main>
+			<main>
+				<GlobalStyles />
+				{children}
+			</main>
 
-      <Footer />
-    </>
-  );
+			<Footer />
+		</>
+	);
 };
 
 export default Page;
