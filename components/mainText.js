@@ -3,6 +3,9 @@ import { colors } from "../data/theme";
 
 const mainText = ({ size = "small" }) => {
 	// Set style properties based on size
+	const constants = {
+		fontSizeMobile: "36px"
+	};
 	const prop = {
 		small: {
 			fontSize: "52px",
@@ -20,7 +23,7 @@ const mainText = ({ size = "small" }) => {
 		<>
 			<div className="main-text">
 				<h1>
-					<span className="sugarrush">Sugarrush</span>
+					<span className="sugarrush">Sugarrush </span>
 					<span className="by-ana">by ana</span>
 				</h1>
 			</div>
@@ -46,6 +49,12 @@ const mainText = ({ size = "small" }) => {
 					text-align: right;
 					color: ${colors["Dark Theme"]};
 					mix-blend-mode: multiply;
+				}
+
+				@media (max-width: 480px) {
+					.main-text .sugarrush {
+						font-size: ${constants.fontSizeMobile};
+					}
 				}
 			`}</style>
 		</>

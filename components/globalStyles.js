@@ -1,13 +1,13 @@
-import React from 'react';
-import { colors, fonts, media } from '../data/theme';
+import React from "react";
+import { colors, fonts, media } from "../data/theme";
 
 const globalStyles = () => {
 	return (
 		<div>
 			<style global jsx>{`
 				::selection {
-					color: ${colors['Just Blue']};
-					background: ${colors['Angy Red']};
+					color: ${colors["Just Blue"]};
+					background: ${colors["Angy Red"]};
 				}
 
 				body {

@@ -61,7 +61,7 @@ const MainContent = props => {
 			</div>
 
 			<section className="main-section">
-				<div className="blob-1"></div>
+				{/* <div className="blob-1"></div> */}
 				<h1 className="main-text">
 					<span className="sugarrush">Sugarrush</span>
 					<span className="by-ana">by ana</span>

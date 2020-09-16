@@ -61,8 +61,8 @@ const Nav = () => (
 
 		<nav className="header-nav">
 			<ul>
-				{headerLinks.map(link => (
-					<NavLinks data={link} />
+				{headerLinks.map((link, index) => (
+					<NavLinks data={link} key={index} />
 				))}
 				{/* <li>
 					<Link href="/">
