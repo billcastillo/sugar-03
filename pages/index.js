@@ -21,7 +21,38 @@ import Contact from "../sections/contact";
 const url =
 	"https://spreadsheets.google.com/feeds/list/1UjD-AjOJr-CaYSbeNjltDZCX3B10ysVRvAF5pXDikUg/1/public/values?alt=json";
 
-const MainContent = (props) => {
+const CarissaPromo = () => (
+	<>
+		<h1 class="main-promo">New Sugarrush promo</h1>
+		<div className="carissa-content">
+			<img src="/static/carissa-1.png" />
+		</div>
+		<style>{`
+			.main-promo {
+				text-align: center;
+				font-size: 32px;
+				margin: 24px;
+				color: #d29ffb;
+			}
+
+			.carissa-content {
+				width: 100%;
+				margin: 24px auto;
+				text-align: center;
+				padding: 0 16px;
+				box-sizing: border-box;
+			}
+
+			.carissa-content img {
+				height: auto;
+				width: 100%;
+				max-width: 760px;
+			}
+		`}</style>
+	</>
+);
+
+const MainContent = props => {
 	const { menuData } = props;
 	return (
 		<>
@@ -127,22 +158,21 @@ class Home extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			menuData: null,
+			menuData: null
 		};
 	}
 
 	componentDidMount() {
-		const { menuData } = this.state;
 		fetch(url)
 			.then(
-				(response) => {
+				response => {
 					return response.json();
 				},
-				(err) => {
+				err => {
 					console.error("oh no something went wrong =(", err);
 				}
 			)
-			.then((response) => {
+			.then(response => {
 				this.setState({ menuData: response.feed.entry });
 			});
 	}
@@ -151,34 +181,9 @@ class Home extends React.Component {
 		const { menuData } = this.state;
 
 		return (
-			<Page pageTitle="Home" noHeader={true}>
-				{/* <MainContent menuData={menuData} /> */}
-				<h1 class="main-promo">New Sugarrush promo</h1>
-				<div className="carissa-content">
-					<img src="/static/carissa-1.png" />
-				</div>
-				<style>{`
-          .main-promo {
-            text-align: center;
-            font-size: 32px;
-            margin: 24px;
-            color: #d29ffb;
-          }
-
-          .carissa-content {
-            width: 100%;
-            margin: 24px auto;
-            text-align: center;
-            padding: 0 16px;
-            box-sizing: border-box;
-          }
-
-          .carissa-content img {
-            height: auto;
-            width: 100%;
-            max-width: 760px;
-          }
-        `}</style>
+			<Page pageTitle="Home">
+				<MainContent menuData={menuData} />
+				{/* <CarissaPromo /> */}
 			</Page>
 		);
 	}
